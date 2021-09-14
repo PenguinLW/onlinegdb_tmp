@@ -1,0 +1,14 @@
++79000000001	Laura Team	Brodway St. 71
++79010000002	Shery Bounce	Golliw St. 71
++79020000003	Inga Lead	Nizhnya Naberezhnya St. 12a
++79030000004	Corvy Sider	Canalis St. 8
++79040000005	Raw Edge	Mountain St. 77
++79050000006	Hugo Boss	Italyan St. 999
++79060000007	Genry Octal	Geometry St. 0
++79070000008	Un Cho	Yorkname St. 4
++79080000009	Li Shiyan	Negrot St. 1
++79090000010	Jack Chan	Shansh St. 71
++79100000011	Indi Apolis	Lidni St. 10
++79110000012	Jeffry Barateon	Visoko St. 7
++79120000013	Sergey Bezrukov	Shalyapina St. 9
++79130000014	Vladimir Putin	Lenina St. 91
