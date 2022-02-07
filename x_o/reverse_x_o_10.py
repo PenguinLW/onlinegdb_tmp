@@ -15,33 +15,16 @@ def check_right_diag(mapw):
     собираем из каждой диагонали строку и отдаём каждую на проверку (вдруг кто уже проиграл)
     '''
     i = 0
-    j = 0
-    while i >= len(mapw) - 1:
+    j = len(mapw)-1
+    while i <= len(mapw)-1:
         I = i
         results = ''
-        while (I >= 0) | (j <= i):
+        while (I >= 0) | (j >= 0):
             results += mapw[I][j]
             I -= 1
-            j += 1
+            j -= 1
         i += 1
-        j = 0
-        if check_tmp_str(results):
-            return True
-    
-    j = 1
-    i = len(mapw) - 1
-    while j >=  len(mapw) - 1:
-        I = i
-        J = j
-        results = ''
-        while I > 0:
-            if J <= len(mapw) - 1:
-                results += mapw[I][J]
-                I -= 1
-                J += 1
-            else:
-                break
-        j += 1
+        j = len(mapw)-1
         if check_tmp_str(results):
             return True
     
@@ -82,9 +65,6 @@ def check_left_diag(mapw):
         if check_tmp_str(results):
             return True
     
-#     for i in range():
-#         for j in range():
-#    return True
     return False
 
 def check_vert_row(mapw):
@@ -211,6 +191,8 @@ while True:
     mapw = show_mapw(map)
     if check_hor_row(mapw) | check_vert_row(mapw) | check_left_diag(mapw) | check_right_diag(mapw):
         break
-#mapw = show_mapw(map)
-#for el in mapw:
+# mapw = show_mapw(map)
+
+# print(check_right_diag(mapw))
+# for el in mapw:
 #    print(el)
