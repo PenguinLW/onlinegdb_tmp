@@ -3,10 +3,10 @@ def check_tmp_str(tmp):
     проверка одной строки (верт/диагон/гориз)
     '''
     if 'X'*5 in tmp:
-        print('X - failed!')
+        print('X - наш проигравший!')
         return True
     if 'O'*5 in tmp:
-        print('O - failed!')
+        print('O - наш проигравший!')
         return True
     return False
 
@@ -16,7 +16,7 @@ def check_right_diag(mapw):
     '''
     i = 0
     j = 0
-    while i <= len(mapw) - 1:
+    while i >= len(mapw) - 1:
         I = i
         results = ''
         while (I >= 0) | (j <= i):
@@ -30,12 +30,12 @@ def check_right_diag(mapw):
     
     j = 1
     i = len(mapw) - 1
-    while (j <=  len(mapw) - 1):
+    while j >=  len(mapw) - 1:
         I = i
         J = j
         results = ''
-        while (I > 0):
-            if (J <= len(mapw) - 1):
+        while I > 0:
+            if J <= len(mapw) - 1:
                 results += mapw[I][J]
                 I -= 1
                 J += 1
@@ -67,12 +67,12 @@ def check_left_diag(mapw):
     
     j = 1
     i = len(mapw) - 1
-    while (j <=  len(mapw) - 1):
+    while j <=  len(mapw) - 1:
         I = i
         J = j
         results = ''
-        while (I > 0):
-            if (J <= len(mapw) - 1):
+        while I > 0:
+            if J <= len(mapw) - 1:
                 results += mapw[I][J]
                 I -= 1
                 J += 1
@@ -135,12 +135,12 @@ def agressive_computer(map, loc, val, nm):
     
     return loc
 
-def make_mark(msp, loc, val, nm):
+def make_mark(map, loc, val, nm):
     '''
     ставится отметка в игровую сетку (от любого из участников)
     '''
-    if (loc > 0) & loc <= nm:
-        if (map[loc - 1] == '.'):
+    if (loc > 0) & (loc <= nm):
+        if map[loc - 1] == '.':
             map[loc-1] = val.upper()
 
 def set_map(new_map, nm = 5):
@@ -156,23 +156,42 @@ def show_map(map):
     здесь смотрим игровую сетку
     '''
     tmp = 0
-    results = '_'*4*10+'\n'
+    results = '\n'
+    for i in range(1, len(show_mapw(map))):
+        results += '  {0:} '.format(i)
+    results += '\n'
+    results += '_'*4*10+'\n'
     results += '|'
     for i in range(len(map)):
         results += ' {0:s} |'.format(map[i])
         tmp += 1;
         if tmp == 10:
-            results += '\n|'
+            results += '{0:}\n|'.format(i+1)
             tmp = 0
     
-    results = results[:-1] + '_'*4*10
+    results = results[:-1] + '_'*4*10 + '\n'
     
     return results
+import random
 # задаём размер для квадратной игровой сетки
 nm = 100
 #инициализируем её
 map = set_map(list(), nm)
 mark = input('За кого играем (x или o): ')
+if 'o' in mark:
+    agressive_computer(
+        map,
+        int(random.randint(1, nm)),
+        'x',
+        nm
+    )
+    print('Компьютер выполнил ход. Ваш черёд')
+else:
+    print('Ход человека первый.')
+
+print(show_map(
+    map
+))
 while True:
     make_mark(
         map,
@@ -190,13 +209,7 @@ while True:
     ))
 #     проверка - вдруг кто победил и выход если да
     mapw = show_mapw(map)
-    if check_hor_row(mapw):
-        break
-    if check_vert_row(mapw):
-        break
-    if check_left_diag(mapw):
-        break
-    if check_right_diag(mapw):
+    if check_hor_row(mapw) | check_vert_row(mapw) | check_left_diag(mapw) | check_right_diag(mapw):
         break
 #mapw = show_mapw(map)
 #for el in mapw:
