@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p id = 'appm'>
+        <h1>
+            it's here
+        </h1>
+        {% for el in options %}
+        <p id = '{{ el }}'> 
+        {{ el }}: 
+            <select>
+                {% for option in options[el] %}
+                <option>
+                    {{ option }}
+                </option>
+                {% endfor %}
+            </select>
+        </p>
+        {% endfor %}
+        
+        <p id='paint' style='visibility: hidden;'>
+            <img src="{{ url_for('plot_png') }}">
+        </p>
+    </p>
+    {% block script %}
+        <script src="{{ url_for('static', filename='script/main.js') }}">
+            //
+        </script>
+    {% endblock %}
+{% endblock %}
