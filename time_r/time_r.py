@@ -47,3 +47,7 @@ def datetime_count():
     return past_time;
 
 print(datetime_count());
+
+time_use()
+
+datetime_use()
