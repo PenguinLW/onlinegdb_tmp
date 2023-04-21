@@ -48,6 +48,6 @@ def datetime_count():
 
 print(datetime_count());
 
-time_use()
-
-datetime_use()
+# time_use()
+#
+# datetime_use()
