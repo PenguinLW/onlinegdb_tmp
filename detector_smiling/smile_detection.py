@@ -4,11 +4,11 @@
 # pip install pyinstaller
 
 # pyinstaller --onefile smile_detection.py # --add-data ";."
-import random, cv2, time;
-face_cascade = cv2.CascadeClassifier("/root/venv/lib/python3.9/site-packages/cv2/data/haarcascade_frontalface_default.xml");
-# face_cascade = cv2.CascadeClassifier("C:\\Programm\\anaconda\\anaconda3\\Lib\\site-packages\\cv2\\data\\haarcascade_frontalface_default.xml");
-smile_cascade = cv2.CascadeClassifier("/root/venv/lib/python3.9/site-packages/cv2/data/haarcascade_smile.xml");
-# smile_cascade = cv2.CascadeClassifier("haarcascade_smile.xml");#("smile.xml");
+import random, cv2, time, os;
+from pathlib import Path;
+u_dir = os.path.join(str(Path.home()), "venv", "Lib", "site-packages", "cv2", "data");
+face_cascade = cv2.CascadeClassifier(os.path.join(u_dir, "haarcascade_frontalface_default.xml"));
+smile_cascade = cv2.CascadeClassifier(os.path.join(u_dir, "haarcascade_smile.xml"));
 video = cv2.VideoCapture(0);
 num = 0;
 
