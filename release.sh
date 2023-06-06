@@ -1,7 +1,7 @@
 #in venv
-. ~/venv/bin/activate
+#. ~/venv/bin/activate
 #pip install -r req.txt
-pip freeze > req.txt
+#pip freeze > req.txt
 chmod u+x *.sh *.py
 #git clone -o onlinegdb_tmp https://github.com/PenguinLW/onlinegdb_tmp.git
 #git config --global user.email "diana1997525@gmail.com"
