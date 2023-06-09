@@ -7,8 +7,8 @@ from flask import Flask, render_template, Response;
 from geometr_calc.shapes.shape import Shape
 
 
-def sapp():
-    return App().app
+# def sapp():
+#     return App().app
 
 class App():
     def __init__(appm):
