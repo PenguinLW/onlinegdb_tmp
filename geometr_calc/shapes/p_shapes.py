@@ -14,7 +14,15 @@ class Circle(Shape):
             if value <= 0:
                 raise ValueError("Parameters can't be negative") 
             setattr(self, key, value)
+    
+    @staticmethod
+    def random_circle():
         
+        xs = [2, 5, 4, 3]
+        ys = [3, 7, 5, 4]
+        xs.append(xs[0])
+        ys.append(ys[0])
+        return xs, ys
 
 class Square(Shape):
     
