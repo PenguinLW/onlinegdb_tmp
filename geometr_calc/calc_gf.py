@@ -5,6 +5,7 @@ from flask import Flask, render_template, Response;
 
 from shapes.shape import Shape
 from shapes.p_shapes import Circle
+from shapes.p_shapes import Square
 
 
 # def sapp():
@@ -30,7 +31,8 @@ class App():
         @appm.app.route('/change_fig')
         def change_figure():
             xy = Shape.random_figure()
-            xy = Circle.random_circle()
+            # xy = Circle.random_circle()
+            # xy = Square.random_square()
             return xy
         
         def create_figure(xs, ys):
@@ -41,4 +43,4 @@ class App():
         
 
 if __name__ == "__main__":
-    App().app.run(host='0.0.0.0', port=1111, debug=False);
+    App().app.run(host='0.0.0.0', port=1111, debug=True);

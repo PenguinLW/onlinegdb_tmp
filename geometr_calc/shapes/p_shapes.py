@@ -30,9 +30,9 @@ class Circle(Shape):
         for i in range(1, 360):
             x = x0 + r * cos(i)
             y = y0 + r * sin(i)
-            if sqrt(x**2 + y**2) == r**2:
-                xs.append(x)
-                ys.append(y)
+            # if sqrt(x**2 + y**2) == r**2:
+            xs.append(x)
+            ys.append(y)
         
         xs.append(xs[0])
         ys.append(ys[0])
@@ -65,8 +65,8 @@ class Square(Shape):
     @staticmethod
     def random_square():
         
-        xs = [2, 5, 4, 3]
-        ys = [3, 7, 5, 4]
+        xs = [2, 2, 3, 3]
+        ys = [3, 6, 6, 3]
         xs.append(xs[0])
         ys.append(ys[0])
         return xs, ys
@@ -83,6 +83,15 @@ class Rect(Square):
             if value <= 0:
                 raise ValueError("Parameters can't be negative") 
             setattr(self, key, value)
+
+    @staticmethod
+    def random_rect():
+
+        xs = [2, 2, 3, 3]
+        ys = [3, 7, 7, 3]
+        xs.append(xs[0])
+        ys.append(ys[0])
+        return xs, ys
     
     
 class Triang(Shape):
