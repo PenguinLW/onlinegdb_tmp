@@ -17,9 +17,23 @@ class Circle(Shape):
     
     @staticmethod
     def random_circle():
+        import random
+        from math import sin, cos, sqrt
         
-        xs = [2, 5, 4, 3]
-        ys = [3, 7, 5, 4]
+        x0 = random.randint(1, 50)
+        y0 = random.randint(1, 50)
+        r = random.randint(1, 10)
+        
+        xs = [x0 + r * cos(0)]
+        ys = [y0 + r * sin(0)]
+                
+        for i in range(1, 360):
+            x = x0 + r * cos(i)
+            y = y0 + r * sin(i)
+            if sqrt(x**2 + y**2) == r**2:
+                xs.append(x)
+                ys.append(y)
+        
         xs.append(xs[0])
         ys.append(ys[0])
         return xs, ys
@@ -47,6 +61,15 @@ class Square(Shape):
     def count_square(self):
         s = float(self.a) * float(self.b)
         return s
+    
+    @staticmethod
+    def random_square():
+        
+        xs = [2, 5, 4, 3]
+        ys = [3, 7, 5, 4]
+        xs.append(xs[0])
+        ys.append(ys[0])
+        return xs, ys
 
 class Rect(Square):
     

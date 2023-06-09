@@ -20,7 +20,7 @@ class Shape:
     @staticmethod
     def random_figure():
         import random
-        xs = list(range(100))
+        xs = list(range(random.randint(1, 100)))
         ys = [random.randint(1, 50) for x in xs]
         # xs = [2, 4, 3, 7]
         # ys = [3, 7, 9, 9]
