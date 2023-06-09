@@ -1,4 +1,5 @@
-from shapes.shape import Shape
+from geometr_calc.shapes.shape import Shape
+
 
 class Sphere(Shape):
     
@@ -75,5 +76,3 @@ class Conus(Shape):
         self.title = '{0:}'.format(
             Shape.store_fg['объём'][5]
         )
-    
-

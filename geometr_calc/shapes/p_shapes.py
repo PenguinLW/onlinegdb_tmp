@@ -1,4 +1,5 @@
-from shapes.shape import Shape
+from geometr_calc.shapes.shape import Shape
+
 
 class Circle(Shape):
     
@@ -100,7 +101,3 @@ class Rhombe(Shape):
             if value <= 0:
                 raise ValueError("Parameters can't be negative") 
             setattr(self, key, value)
-    
-    
-
-

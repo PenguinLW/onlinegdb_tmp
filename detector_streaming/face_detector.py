@@ -1,8 +1,11 @@
-import cv2;
+import cv2, os;
 
-cap = cv2.VideoCapture(0, cv2.CAP_DSHOW);
-face_detector = cv2.CascadeClassifier(cv2.data.haarcascades +
-    "haarcascade_frontalface_default.xml");
+cap = cv2.VideoCapture(0);#, cv2.CAP_DSHOW);
+
+face_detector = cv2.CascadeClassifier(
+    os.path.join(cv2.data.haarcascades, "haarcascade_frontalface_default.xml")
+);
+
 while True:
     ret, frame = cap.read();
     if ret:

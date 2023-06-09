@@ -15,5 +15,4 @@ class Shape:
         
 #        for el in Shape.store_fg:
 #            print(el, Shape.store_fg[el])
-            
-        return store_fg
+        return Shape.store_fg

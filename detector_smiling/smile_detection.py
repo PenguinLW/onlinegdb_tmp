@@ -6,10 +6,19 @@
 # pyinstaller --onefile smile_detection.py # --add-data ";."
 import random, cv2, time, os;
 from pathlib import Path;
-u_dir = os.path.join(str(Path.home()), "venv", "Lib", "site-packages", "cv2", "data");
+
+u_dir = cv2.data.haarcascades;
+# u_dir = os.path.join(str(Path.home()), "venv", "Lib", "site-packages", "cv2", "data");
 # u_dir = os.path.join(str(Path.home()), "venv", "Lib", "python3.9", "site-packages", "cv2", "data");
-face_cascade = cv2.CascadeClassifier(os.path.join(u_dir, "haarcascade_frontalface_default.xml"));
-smile_cascade = cv2.CascadeClassifier(os.path.join(u_dir, "haarcascade_smile.xml"));
+
+face_cascade = cv2.CascadeClassifier(
+    os.path.join(u_dir, "haarcascade_frontalface_default.xml")
+);
+
+smile_cascade = cv2.CascadeClassifier(
+    os.path.join(u_dir, "haarcascade_smile.xml")
+);
+
 video = cv2.VideoCapture(0);
 num = 0;
 
