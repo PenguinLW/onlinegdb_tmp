@@ -4,7 +4,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 from flask import Flask, render_template, Response;
 
-from geometr_calc.shapes.shape import Shape
+from shapes.shape import Shape
 
 
 # def sapp():

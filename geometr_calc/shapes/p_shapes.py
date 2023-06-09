@@ -1,4 +1,4 @@
-from geometr_calc.shapes.shape import Shape
+from shapes.shape import Shape
 
 
 class Circle(Shape):
