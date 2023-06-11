@@ -2,22 +2,27 @@
 
 {% block content %}
     <p id = 'appm'>
+        <table class='center'>
+            <tr>
+                {% for el in options %}
+
+                    <td id = '{{ el }}'>
+                    {{ el }}:
+                        <select id='выбор_{{ el }}' onchange="s_view({{ el }})">
+                            {% for option in options[el] %}
+                            <option id='{{ option }}'>
+                                {{ option }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                {% endfor %}
+            </tr>
+        </table>
+
         <h1>
             it's here
         </h1>
-        {% for el in options %}
-        <p id = '{{ el }}'> 
-        {{ el }}: 
-            <select>
-                {% for option in options[el] %}
-                <option>
-                    {{ option }}
-                </option>
-                {% endfor %}
-            </select>
-        </p>
-        {% endfor %}
-        
         <p id='paint' style='visibility: hidden;'>
             <img src="{{ url_for('plot_png') }}">
         </p>
