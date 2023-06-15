@@ -56,6 +56,14 @@ def plot_png():
 
     ax.plot_surface(x, y, z)
 
+    # установить размеры осей и названия
+    # ax.set_xlim([0,1])
+    # ax.set_ylim([0,1])
+    # ax.set_zlim([0,1])
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+
     output = io.BytesIO()
     plt.savefig(output, format='png')
     plt.close(fig)

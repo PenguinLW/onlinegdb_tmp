@@ -14,22 +14,22 @@ def home():
 def plot_png():
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
-    # Создание списка вершин куба
-    vertices = np.array([(x, y, z)
-                    for x in [0, 1]
-                    for y in [0, 1]
-                    for z in [0, 1]])
-    # Создание списка граней куба
-    faces = np.array([(0, 1, 3, 2),
-                      (4, 5, 7, 6),
-                      (0, 1, 5, 4),
-                      (2, 3, 7, 6),
-                      (0, 2, 6, 4),
-                      (1, 3, 7, 5)])
-    # Использование созданных списков вершин и граней для построения куба
-    ax.add_collection3d(
-        Poly3DCollection([vertices[face] for face in faces], alpha=.25, facecolor='b')
-    )
+
+    # Определение параметров цилиндра
+    r = 1
+    h = 2
+    resolution = 50
+
+    # Генерация координат вершин цилиндра
+    theta = np.linspace(0, 2 * np.pi, resolution)
+    z = np.linspace(0, h, resolution)
+    theta, z = np.meshgrid(theta, z)
+    x = r * np.cos(theta)
+    y = r * np.sin(theta)
+
+    # Использование созданных координат для построения поверхности цилиндра
+    ax.plot_surface(x, y, z, alpha=0.7)
+
     # установить размеры осей и названия
     # ax.set_xlim([0,1])
     # ax.set_ylim([0,1])

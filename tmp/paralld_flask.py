@@ -38,9 +38,9 @@ def plot_png():
         Poly3DCollection([vertices[face] for face in faces], alpha=.25, facecolor='b')
     )
     # установить размеры осей и названия
-    ax.set_xlim([0,1])
-    ax.set_ylim([0,1])
-    ax.set_zlim([0,1])
+    # ax.set_xlim([0,1])
+    # ax.set_ylim([0,1])
+    # ax.set_zlim([0,1])
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')

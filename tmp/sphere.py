@@ -14,4 +14,12 @@ z = 2 * np.outer(np.ones(np.size(u)), np.cos(v))
 
 ax.plot_surface(x, y, z)
 
+# установить размеры осей и названия
+# ax.set_xlim([0,1])
+# ax.set_ylim([0,1])
+# ax.set_zlim([0,1])
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+
 plt.show()
