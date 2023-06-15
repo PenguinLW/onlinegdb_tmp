@@ -37,10 +37,6 @@ def plot_png():
     ax.add_collection3d(
         Poly3DCollection([vertices[face] for face in faces], alpha=.25, facecolor='b')
     )
-    # Настройка параметроврафика
-    ax.set_xlabel('X')
-    ax.set_ylabel('Y')
-    ax.set_zlabel('Z')
     # установить размеры осей и названия
     ax.set_xlim([0,1])
     ax.set_ylim([0,1])
