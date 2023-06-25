@@ -27,3 +27,25 @@ class Shape:
         xs.append(xs[0])
         ys.append(ys[0])
         return xs, ys
+
+    @staticmethod
+    def create_pfigure(xs, ys):
+        from matplotlib.figure import Figure
+        fig = Figure()
+        axis = fig.add_subplot(1, 1, 1)
+        axis.plot(xs, ys)
+        # установить названия осей
+        axis.set_xlabel('X')
+        axis.set_ylabel('Y')
+        return fig
+
+    @staticmethod
+    def create_vfigure():
+        from matplotlib.figure import Figure
+        fig = Figure()
+        axis = fig.add_subplot(111, projection='3d')
+        # установить названия осей
+        axis.set_xlabel('X')
+        axis.set_ylabel('Y')
+        axis.set_zlabel('Z')
+        return fig, axis;

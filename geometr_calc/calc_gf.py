@@ -1,6 +1,6 @@
 import io
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from matplotlib.figure import Figure
+# from matplotlib.figure import Figure
 from flask import Flask, render_template, Response;
 
 from shapes.shape import Shape
@@ -23,41 +23,55 @@ class App():
         @appm.app.route('/-/plot.png')
         @appm.app.route('/plot.png')
         def plot_png(figure="random"):
-            xy = change_figure(figure)
-            fig = create_figure(xy[0], xy[1])
+            # xy = change_figure(figure)
+            # fig = create_figure(xy[0], xy[1])
+            fig = create_figure(figure)
             output = io.BytesIO()
             FigureCanvas(fig).print_png(output)
             return Response(output.getvalue(), mimetype='image/png')
         
         @appm.app.route('/change_fig')
-        def change_figure(figure):
+        def create_figure(figure):
             if figure == "random":
-                xy = Shape.random_figure()
+                coord = Shape.random_figure()
+                fig = Shape.create_pfigure(coord[0], coord[1])
             if figure == 'круг':
-                xy = Circle.random_circle()
+                coord = Circle.random_circle()
+                fig = Shape.create_pfigure(coord[0], coord[1])
             if figure == 'квадрат':
-                xy = Square.random_square()
+                coord = Square.random_square()
+                fig = Shape.create_pfigure(coord[0], coord[1])
             if figure == 'прямоугольник':
-                xy = Rect.random_rect()
+                coord = Rect.random_rect()
+                fig = Shape.create_pfigure(coord[0], coord[1])
             if figure == 'треугольник':
-                xy = Triang.random_triang()
+                coord = Triang.random_triang()
+                fig = Shape.create_pfigure(coord[0], coord[1])
             if figure == 'трапеция':
-                xy = Trapec.random_trapec()
+                coord = Trapec.random_trapec()
+                fig = Shape.create_pfigure(coord[0], coord[1])
             if figure == 'ромб':
-                xy = Rhombe.random_rhombe()
+                coord = Rhombe.random_rhombe()
+                fig = Shape.create_pfigure(coord[0], coord[1])
             if figure == 'сфера':
-                xy = Sphere.random_sphere()
+                set_fg = Shape.create_vfigure()
+                fig = Sphere.random_sphere(set_fg[0], set_fg[1])
             if figure == 'куб':
-                xy = Cube.random_cube()
+                set_fg = Shape.create_vfigure()
+                fig = Cube.random_cube(set_fg[0], set_fg[1])
             if figure == 'параллелепипед':
-                xy = Paralld.random_paralld()
+                set_fg = Shape.create_vfigure()
+                fig = Paralld.random_paralld(set_fg[0], set_fg[1])
             if figure == 'пирамида':
-                xy = Pyram.random_pyram()
+                set_fg = Shape.create_vfigure()
+                fig = Pyramd.random_pyramd(set_fg[0], set_fg[1])
             if figure == 'цилиндр':
-                xy = Cilinder.random_cilinder()
+                set_fg = Shape.create_vfigure()
+                fig = Cilind.random_cilind(set_fg[0], set_fg[1])
             if figure == 'конус':
-                xy = Conus.random_conus()
-            return xy
+                set_fg = Shape.create_vfigure()
+                fig = Conus.random_conus(set_fg[0], set_fg[1])
+            return fig
 
         @appm.app.route('/show_store')
         def show_store():
@@ -102,11 +116,11 @@ class App():
         def conus_png(figure=Shape.show_store()['объём'][5]):
             return plot_png(figure)
 
-        def create_figure(xs, ys):
-            fig = Figure()
-            axis = fig.add_subplot(1, 1, 1)
-            axis.plot(xs, ys)
-            return fig
+        # def create_figure(xs, ys):
+        #     fig = Figure()
+        #     axis = fig.add_subplot(1, 1, 1)
+        #     axis.plot(xs, ys)
+        #     return fig
         
 
 if __name__ == "__main__":
