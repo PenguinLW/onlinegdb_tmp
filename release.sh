@@ -4,7 +4,7 @@
 #pip freeze > req.txt
 chmod u+x *.sh *.py
 
-#git config --global --add safe.directory /media/penguinl/PenguinL/PycharmProjects/onlinegdb_tmp
+git config --global --add safe.directory /media/penguinl/PenguinL/PycharmProjects/onlinegdb_tmp
 #git clone -o onlinegdb_tmp https://github.com/PenguinLW/onlinegdb_tmp.git
 #git config --global user.email "diana1997525@gmail.com"
 #git config --global user.name "PenguinLW"
